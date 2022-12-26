@@ -4,7 +4,7 @@ import "time"
 
 type Fiat struct {
 	ID       int64
-	Fiat_ID  string
+	FiatID  string
 	Value    float32
 	CurrName string
 	Date     time.Time
