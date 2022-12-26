@@ -10,11 +10,11 @@ import (
 func (db *DB) SaveFiat(f []models.Fiat) error {
 	var errs []error
 	for i, fiat := range f {
-		err := db.Where(models.Fiat{Fiat_ID: fiat.Fiat_ID}).
+		err := db.Where(models.Fiat{FiatID: fiat.FiatID}).
 			Order("date DESC").
 			FirstOrCreate(&f[i]).Error
 		if err != nil {
-			aerr := fmt.Errorf("first or creating fiat %s: %w", f[i].Fiat_ID, err)
+			aerr := fmt.Errorf("first or creating fiat %s: %w", f[i].FiatID, err)
 			errs = append(errs, aerr)
 		}
 	}

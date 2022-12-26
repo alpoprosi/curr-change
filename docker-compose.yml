@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  postgres_curr:
+    image: postgres:11-alpine
+    container_name: postgres_curr
+    ports:
+      - 127.0.0.1:54321:5432
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DBS: curr 
+      volumes:
+      - ./create_databases.py:/usr/bin/create_databases.py
+      - ./pg:/var/lib/postgresql/data
+    
